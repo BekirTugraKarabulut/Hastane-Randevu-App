@@ -1,5 +1,6 @@
 package com.tugra.config;
 
+import com.tugra.jwt.AuthEntryPoint;
 import com.tugra.jwt.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +24,9 @@ public class SecurityConfig {
     private AuthenticationProvider authenticationProvider;
 
     @Autowired
+    private AuthEntryPoint authEntryPoint;
+
+    @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
@@ -40,6 +44,7 @@ public class SecurityConfig {
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated())
+                .exceptionHandling((csrf) -> csrf.authenticationEntryPoint(authEntryPoint))
                 .authenticationProvider(authenticationProvider)
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtAuthenticationFilter , UsernamePasswordAuthenticationFilter.class);
