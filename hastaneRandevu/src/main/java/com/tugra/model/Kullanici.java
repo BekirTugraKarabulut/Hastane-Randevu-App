@@ -47,7 +47,7 @@ public class Kullanici implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "kullanici", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "kullanici", cascade =  CascadeType.ALL, fetch = FetchType.LAZY)
     private List<RefreshToken> refreshToken;
 
     @Override

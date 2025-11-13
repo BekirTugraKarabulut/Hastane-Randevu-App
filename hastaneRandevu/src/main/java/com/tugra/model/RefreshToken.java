@@ -30,7 +30,7 @@ public class RefreshToken {
     @Column(name = "expires_date")
     private Date expiresDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tc_no" , referencedColumnName = "tc_no")
     private Kullanici kullanici;
 
