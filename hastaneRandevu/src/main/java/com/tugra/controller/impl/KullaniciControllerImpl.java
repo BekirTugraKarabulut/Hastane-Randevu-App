@@ -3,6 +3,7 @@ package com.tugra.controller.impl;
 import com.tugra.controller.KullaniciController;
 import com.tugra.dto.DtoKullanici;
 import com.tugra.service.KullaniciService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/rest/api")
+@Tag(name = "Kullanici Controller" , description = "Kullanici API İşlemleri")
 public class KullaniciControllerImpl implements KullaniciController {
 
     @Autowired

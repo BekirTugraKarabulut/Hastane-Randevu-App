@@ -17,7 +17,6 @@ public class Departman {
 
     @Id
     @Column(name = "departman_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long departmanId;
 
     @Column(name = "departman_ad")

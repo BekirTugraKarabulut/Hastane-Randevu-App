@@ -16,7 +16,6 @@ import java.util.List;
 public class Bolum {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bolum_id")
     private Long bolumId;
 

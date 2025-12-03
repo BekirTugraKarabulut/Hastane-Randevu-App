@@ -110,7 +110,6 @@ public class AuthServiceImpl implements AuthService {
 
     }
 
-
     @Override
     public AuthResponse refreshToken(DtoRefreshToken dtoRefreshToken) {
 

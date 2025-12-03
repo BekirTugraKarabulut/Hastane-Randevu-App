@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DtoKullaniciUI {
 
-
     @Size(min = 11, max = 11 , message = "TC Kimlik Numarası 11 haneli olmalıdır.")
     private String username;
 

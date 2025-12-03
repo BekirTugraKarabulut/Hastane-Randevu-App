@@ -38,6 +38,9 @@ public class SecurityConfig {
                                         REGISTER ,
                                         LOGIN ,
                                         REFRESH_TOKEN,
+                                        "/bolum/**",
+                                        "/departman/departman-ekle",
+                                        "/hastane/**",
                                         "/swagger-ui/**",
                                         "/v3/api-docs/**",
                                         "/swagger.html")
