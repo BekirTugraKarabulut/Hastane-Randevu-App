@@ -1,0 +1,14 @@
+package com.tugra.service;
+
+import com.tugra.dto.DtoCalisanlar;
+import com.tugra.dto.DtoCalisanlarUI;
+import com.tugra.jwt.AuthResponse;
+import com.tugra.jwt.CalisanRequest;
+
+public interface CalisanlarService {
+
+    public DtoCalisanlar kayitOl(DtoCalisanlarUI dtoCalisanlarUI);
+
+    public AuthResponse girisYap(CalisanRequest calisanRequest);
+
+}

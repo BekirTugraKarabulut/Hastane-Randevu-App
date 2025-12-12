@@ -69,4 +69,16 @@ public class BolumServiceImpl implements BolumService {
 
         return dtoBolum;
     }
+
+    public Bolum bolumKontrol(Long bolumId){
+
+        Optional<Bolum> bolumOptional = bolumRepository.findByBolumId(bolumId);
+
+        if(bolumOptional.isPresent()){
+            return bolumOptional.get();
+        } else {
+            return null;
+        }
+    }
+
 }

@@ -38,6 +38,7 @@ public class SecurityConfig {
                                         REGISTER ,
                                         LOGIN ,
                                         REFRESH_TOKEN,
+                                        "/calisanlar/**",
                                         "/bolum/**",
                                         "/departman/departman-ekle",
                                         "/hastane/**",

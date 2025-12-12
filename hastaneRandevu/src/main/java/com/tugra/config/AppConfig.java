@@ -1,7 +1,9 @@
 package com.tugra.config;
 
+import com.tugra.model.Calisanlar;
 import com.tugra.model.Kullanici;
 import com.tugra.repository.AuthRepository;
+import com.tugra.repository.CalisanlarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +23,9 @@ public class AppConfig {
     @Autowired
     private AuthRepository authRepository;
 
+    @Autowired
+    private CalisanlarRepository calisanlarRepository;
+
     @Bean
     public UserDetailsService userDetailsService() {
         return new UserDetailsService() {
@@ -28,9 +33,12 @@ public class AppConfig {
             public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
                 Optional<Kullanici> kullanici = authRepository.findByUsername(username);
+                Optional<Calisanlar> calisanlar = calisanlarRepository.findByCalisanId(Long.parseLong(username));
 
                 if(kullanici.isEmpty()){
-                    return null;
+                    if(calisanlar.isPresent()){
+                        return calisanlar.get();
+                    }
                 }
 
                 return kullanici.get();

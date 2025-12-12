@@ -7,7 +7,11 @@ public enum Role {
 
     KULLANICI("KULLANICI"),
     ADMIN("ADMIN"),
-    HASTANE_CALISANI("HASTANE_CALISANI");
+    DOKTOR("DOKTOR"),
+    HEMSIRE("HEMSIRE"),
+    CERRAH("CERRAH"),
+    STAJYER("STAJYER"),
+    HIZMETLI("HIZMETLI");
 
     private String value;
 
