@@ -30,7 +30,6 @@ class _FirstsayfaState extends State<Firstsayfa> {
           children: [
             Text("TuKar Hastanesi", style: TextStyle(color: Colors.black , fontSize: 25 , fontWeight: FontWeight.bold),),
             Lottie.asset("asset/hospital preloaded.json"),
-            Text("Hoş Geldiniz" , style: TextStyle(color: Colors.black , fontSize: 25 , fontWeight: FontWeight.bold),)
           ],
         ),
       ),

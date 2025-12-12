@@ -271,7 +271,7 @@ class _KayitsayfasiState extends State<Kayitsayfasi> {
                     children: [
                       Text("Hesabınız var mı? ", style: TextStyle(color: Colors.black , fontWeight: FontWeight.w600),),
                       GestureDetector(
-                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Girissayfa())),
+                          onTap: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Girissayfa())),
                           child: Text("Giriş Yap" , style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold , decoration: TextDecoration.underline),))
                     ],
                   ),
