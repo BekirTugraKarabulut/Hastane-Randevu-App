@@ -38,6 +38,7 @@ public class SecurityConfig {
                                         REGISTER ,
                                         LOGIN ,
                                         REFRESH_TOKEN,
+                                        "rest/api/kullanici/**",
                                         "/calisanlar/**",
                                         "/bolum/**",
                                         "/rest/api/countKullanici",

@@ -8,5 +8,6 @@ public class RestApis {
     public static final String GET_ALL_KULLANICI = "/kullanici/get-all";
     public static final String DELETE_KULLANICI_BY_USERNAME = "/delete/{username}";
     public static final String GET_KULLANICI_BY_USERNAME = "/kullanici/{username}";
+    public static final String COUNT_KULLANICI = "/countKullanici";
 
 }

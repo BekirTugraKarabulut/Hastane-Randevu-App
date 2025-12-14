@@ -69,4 +69,6 @@ public class KullaniciServiceImpl implements KullaniciService {
         return kullaniciRepository.count();
     }
 
+
+
 }

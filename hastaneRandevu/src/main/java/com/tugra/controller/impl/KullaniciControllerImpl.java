@@ -38,7 +38,7 @@ public class KullaniciControllerImpl implements KullaniciController {
     }
 
     @Override
-    @GetMapping(path = "/countKullanici")
+    @GetMapping(path = COUNT_KULLANICI)
     public Long countKullanici() {
         return kullaniciService.countKullanici();
     }
