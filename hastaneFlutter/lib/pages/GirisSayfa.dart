@@ -115,6 +115,7 @@ class _GirissayfaState extends State<Girissayfa> {
                         SnackBar(content: Text("Giriş Başarılı."),
                         action: SnackBarAction(label: "Tamam", onPressed: (){}),)
                       );
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Anasayfa(username: usernameKontrol.text)));
                     }
                     else{
                       ScaffoldMessenger.of(context).showSnackBar(
