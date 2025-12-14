@@ -9,6 +9,7 @@ import com.tugra.repository.KullaniciRepository;
 import com.tugra.service.KullaniciService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -61,6 +62,11 @@ public class KullaniciServiceImpl implements KullaniciService {
         DtoKullanici dtoKullanici = new DtoKullanici();
         BeanUtils.copyProperties(kullanici.get(), dtoKullanici);
         return dtoKullanici;
-
     }
+
+    @Cacheable(value = "kullaniciCache")
+    public Long countKullanici(){
+        return kullaniciRepository.count();
+    }
+
 }

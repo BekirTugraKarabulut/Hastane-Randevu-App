@@ -37,4 +37,10 @@ public class KullaniciControllerImpl implements KullaniciController {
         return kullaniciService.getKullaniciByUsername(username);
     }
 
+    @Override
+    @GetMapping(path = "/countKullanici")
+    public Long countKullanici() {
+        return kullaniciService.countKullanici();
+    }
+
 }

@@ -12,4 +12,6 @@ public interface KullaniciController {
 
     public DtoKullanici getKullaniciByUsername(String username);
 
+    Long countKullanici();
+
 }

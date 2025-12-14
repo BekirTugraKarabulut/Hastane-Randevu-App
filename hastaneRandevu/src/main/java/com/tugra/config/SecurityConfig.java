@@ -40,6 +40,7 @@ public class SecurityConfig {
                                         REFRESH_TOKEN,
                                         "/calisanlar/**",
                                         "/bolum/**",
+                                        "/rest/api/countKullanici",
                                         "/departman/departman-ekle",
                                         "/hastane/**",
                                         "/swagger-ui/**",
