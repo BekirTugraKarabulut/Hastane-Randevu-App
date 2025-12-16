@@ -1,5 +1,9 @@
 package com.tugra.service.impl;
 
+import com.tugra.exception.BaseException;
+import com.tugra.exception.ErrorMessage;
+import com.tugra.exception.MessageType;
+
 public class TcknDogrulama {
 
     public static String tcknDogrulama(String tckn){
@@ -7,15 +11,15 @@ public class TcknDogrulama {
         String dogrulanacakTckn = tckn;
 
         if (dogrulanacakTckn.length() != 11){
-            return "Geçersiz TCKN: Uzunluk 11 haneli olmalıdır.";
+            throw new BaseException(new ErrorMessage(MessageType.TCKN_UZUNLUK_HATASI,tckn.toString()));
         }
 
         if (Character.getNumericValue(dogrulanacakTckn.charAt(0)) == 0){
-            return "Geçersiz TCKN: İlk hane 0 olamaz.";
+            throw new BaseException(new ErrorMessage(MessageType.TCKN_ILK_RAKAM_HATASI,tckn.toString()));
         }
 
         if(Character.getNumericValue(dogrulanacakTckn.charAt(10)) % 2 == 1){
-            return "Geçersiz TCKN: Son hane çift sayı olmalıdır.";
+            throw new BaseException(new ErrorMessage(MessageType.TCKN_SON_RAKAM_HATASI,tckn.toString()));
         }
 
         Integer[] tcknDogrulama = new Integer[11];
@@ -33,13 +37,13 @@ public class TcknDogrulama {
         Integer eldeEdilenSonuc = tekBasamakCarpimSonucu - ciftBasamakToplamlari;
 
         if(eldeEdilenSonuc % 10 != tcknDogrulama[9]){
-            return "Geçersiz TCKN: 10. hane doğrulaması başarısız.";
+            throw new BaseException(new ErrorMessage(MessageType.TCKN_ONUNCU_RAKAM_HATASI,tckn.toString()));
         }
 
         Integer ilk10BasamakToplami = tekBasamakToplamlari + ciftBasamakToplamlari + tcknDogrulama[9];
 
         if(ilk10BasamakToplami % 10 != tcknDogrulama[10]){
-            return "Geçersiz TCKN: 11. hane doğrulaması başarısız.";
+            throw new BaseException(new ErrorMessage(MessageType.TCKN_ONBIRINCI_RAKAM_HATASI,tckn.toString()));
         }
 
         return tckn;
