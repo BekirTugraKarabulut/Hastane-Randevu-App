@@ -32,7 +32,7 @@ class _GirissayfaState extends State<Girissayfa> {
             children: [
                 Lottie.asset("asset/Login.json" , width: 280 , height: 280),
               Padding(
-                padding: const EdgeInsets.only(top: 10 , left: 20 , right: 20),
+                padding: const EdgeInsets.only(top: 5 , left: 20 , right: 20),
                 child: Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
@@ -139,9 +139,6 @@ class _GirissayfaState extends State<Girissayfa> {
                   )
                 ],
               ),
-              ElevatedButton(onPressed: (){
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Anasayfa(username: usernameKontrol.text)));
-              }, child: Text("Geç"))
             ],
           ),
         ),
