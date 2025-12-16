@@ -21,6 +21,7 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import static com.tugra.service.impl.TcknDogrulama.tcknDogrulama;
 
 import java.util.Date;
 import java.util.Optional;
@@ -48,7 +49,7 @@ public class AuthServiceImpl implements AuthService {
     public DtoKullanici register(DtoKullaniciUI dtoKullaniciUI) {
 
         Kullanici kullanici = new Kullanici();
-        kullanici.setUsername(dtoKullaniciUI.getUsername());
+        kullanici.setUsername(tcknDogrulama(dtoKullaniciUI.getUsername()));
         kullanici.setAd(dtoKullaniciUI.getAd());
         kullanici.setSoyad(dtoKullaniciUI.getSoyad());
         kullanici.setEmail(dtoKullaniciUI.getEmail());
