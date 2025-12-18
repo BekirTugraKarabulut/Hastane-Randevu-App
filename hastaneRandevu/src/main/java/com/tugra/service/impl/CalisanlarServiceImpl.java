@@ -104,4 +104,16 @@ public class CalisanlarServiceImpl implements CalisanlarService {
 
         return new AuthResponse(accessToken , dbRefreshTokenCalisanlar.getToken());
     }
+
+    public Calisanlar calisanGetir(Long calisanId){
+
+        Optional<Calisanlar> calisanlar = calisanlarRepository.findByCalisanId(calisanId);
+
+        if(calisanlar.isEmpty()){
+            throw new BaseException(new ErrorMessage(MessageType.CALISAN_BULUNAMADI , calisanId.toString()));
+        }
+
+        return calisanlar.get();
+    }
+
 }

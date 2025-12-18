@@ -38,6 +38,7 @@ public class SecurityConfig {
                                         REGISTER ,
                                         LOGIN ,
                                         REFRESH_TOKEN,
+                                        "/randevu/randevuAl",
                                         "rest/api/kullanici/**",
                                         "/calisanlar/**",
                                         "/bolum/**",

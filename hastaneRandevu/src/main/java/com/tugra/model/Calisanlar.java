@@ -53,6 +53,9 @@ public class Calisanlar implements UserDetails {
     @JoinColumn(name = "bolum_id", referencedColumnName = "bolum_id")
     private Bolum bolum;
 
+    @OneToMany(mappedBy = "calisanlar", cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+    private List<Randevu> randevular;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.toString()));

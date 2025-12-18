@@ -50,6 +50,9 @@ public class Kullanici implements UserDetails {
     @OneToMany(mappedBy = "kullanici", cascade =  CascadeType.ALL, fetch = FetchType.LAZY)
     private List<RefreshToken> refreshToken;
 
+    @OneToMany(mappedBy = "kullanici", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Randevu> randevular;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

@@ -15,7 +15,8 @@ public enum MessageType {
     TCKN_ILK_RAKAM_HATASI("202", "Geçersiz TCKN: İlk hane 0 olamaz."),
     TCKN_SON_RAKAM_HATASI("203", "Geçersiz TCKN: Son hane çift sayı olmalıdır."),
     TCKN_ONUNCU_RAKAM_HATASI("204", "Geçersiz TCKN: 10. hane doğrulaması başarısız."),
-    TCKN_ONBIRINCI_RAKAM_HATASI("205", "Geçersiz TCKN: 11. hane doğrulaması başarısız.");
+    TCKN_ONBIRINCI_RAKAM_HATASI("205", "Geçersiz TCKN: 11. hane doğrulaması başarısız."),
+    CALISAN_BULUNAMADI("301", "Çalışan bulunamadı !");
 
     private String code;
     private String message;

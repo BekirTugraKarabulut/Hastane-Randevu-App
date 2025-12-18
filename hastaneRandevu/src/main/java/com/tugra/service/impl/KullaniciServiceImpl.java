@@ -19,6 +19,7 @@ import java.util.Optional;
 @Service
 public class KullaniciServiceImpl implements KullaniciService {
 
+
     @Autowired
     private KullaniciRepository kullaniciRepository;
 
@@ -69,6 +70,17 @@ public class KullaniciServiceImpl implements KullaniciService {
         return kullaniciRepository.count();
     }
 
+    public Kullanici getKullanici(String username){
+
+        Optional<Kullanici> kullanici = kullaniciRepository.findKullaniciByUsername(username);
+
+        if(kullanici.isEmpty()){
+            throw new BaseException(new ErrorMessage(MessageType.KULLANICI_BULUNAMADI , username));
+        }
+
+        return kullanici.get();
+
+    }
 
 
 }
