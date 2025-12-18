@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hastane_flutter/pages/HastaneAdresSayfasi.dart';
 import 'package:hastane_flutter/pages/ProfilSayfa.dart';
+import 'package:hastane_flutter/pages/RandevuAlSayfasi.dart';
 import 'package:hastane_flutter/pages/RandevularimSayfasi.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -49,7 +50,7 @@ class _AnasayfaState extends State<Anasayfa> {
   Widget _buildAnasayfa(String username) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 80.0),
+        padding: const EdgeInsets.only(bottom: 75.0),
         child: Center(
           child: Column(
             children: [
@@ -88,7 +89,6 @@ class _AnasayfaState extends State<Anasayfa> {
                             ),
                           ),
                           const SizedBox(height: 15),
-                          // Indicator
                           SmoothPageIndicator(
                             controller: _pageController,
                             count: images.length,
@@ -117,81 +117,117 @@ class _AnasayfaState extends State<Anasayfa> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Column(
-                      children: [
-                        ClipRRect(
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                          ),
-                          child: Image.asset(
-                            "images/doktorgulenyuz_ikon.jpeg",
-                            height: 160,
-                            width: 160,
-                            fit: BoxFit.cover,
-                          ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius:  BorderRadius.all(
+                          Radius.circular(20)
                         ),
-                        Container(
-                          height: 40,
-                          width: 160,
-                          child: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: const WidgetStatePropertyAll(Colors.blueAccent),
-                              shape: WidgetStatePropertyAll(
-                                RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.only(
-                                    bottomLeft: Radius.circular(20),
-                                    bottomRight: Radius.circular(20),
+                        border: Border.all(
+                          color: Colors.black
+                        )
+                      ),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            child: Image.asset(
+                              "images/doktorgulenyuz_ikon.jpeg",
+                              height: 160,
+                              width: 160,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            height: 40,
+                            width: 160,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                const WidgetStatePropertyAll(Colors.blueAccent),
+                                elevation: const WidgetStatePropertyAll(6),
+                                shadowColor:
+                                const WidgetStatePropertyAll(Colors.black54),
+                                shape: WidgetStatePropertyAll(
+                                  RoundedRectangleBorder(
+                                    side: const BorderSide(
+                                      color: Colors.white,
+                                      width: 1.5,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            onPressed: () {},
-                            child: const Text(
-                              "Doktor Kadrosu",
-                              style: TextStyle(color: Colors.white),
+                              onPressed: () {},
+                              child: const Text(
+                                "Doktor Kadrosu",
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                    Column(
-                      children: [
-                        ClipRRect(
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                          ),
-                          child: Image.asset(
-                            "images/muayne.jpeg",
-                            height: 160,
-                            width: 160,
-                            fit: BoxFit.cover,
-                          ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20)
                         ),
-                        Container(
-                          height: 40,
-                          width: 160,
-                          child: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: const WidgetStatePropertyAll(Colors.blueAccent),
-                              shape: WidgetStatePropertyAll(
-                                RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.only(
-                                    bottomLeft: Radius.circular(20),
-                                    bottomRight: Radius.circular(20),
+                        border: Border.all(
+                          color: Colors.black
+                        )
+                      ),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            child: Image.asset(
+                              "images/muayne.jpeg",
+                              height: 160,
+                              width: 160,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            height: 40,
+                            width: 160,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                const WidgetStatePropertyAll(Colors.blueAccent),
+                                elevation: const WidgetStatePropertyAll(6),
+                                shadowColor:
+                                const WidgetStatePropertyAll(Colors.black54),
+                                shape: WidgetStatePropertyAll(
+                                  RoundedRectangleBorder(
+                                    side: const BorderSide(
+                                      color: Colors.white,
+                                      width: 1.5,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            onPressed: () {},
-                            child: const Text(
-                              "Muayene Saatleri",
-                              style: TextStyle(color: Colors.white),
+                              onPressed: () {},
+                              child: const Text(
+                                "Muayene Saatleri",
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -227,7 +263,9 @@ class _AnasayfaState extends State<Anasayfa> {
                         ),
                         backgroundColor: const WidgetStatePropertyAll(Colors.green),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Randevualsayfasi(username: widget.username)));
+                      },
                       child: const Text(
                         "Randevu Al",
                         style: TextStyle(color: Colors.white),
