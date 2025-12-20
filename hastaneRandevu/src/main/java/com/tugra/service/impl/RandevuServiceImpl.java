@@ -86,6 +86,9 @@ public class RandevuServiceImpl implements RandevuService {
 
             DtoCalisanlar dtoCalisanlar = new DtoCalisanlar();
             BeanUtils.copyProperties(randevu.getCalisanlar(), dtoCalisanlar);
+            DtoBolum dtoBolum = new DtoBolum();
+            BeanUtils.copyProperties(randevu.getCalisanlar().getBolum(), dtoBolum);
+            dtoCalisanlar.setBolum(dtoBolum);
             dtoRandevu.setCalisanlar(dtoCalisanlar);
 
             dtoRandevuList.add(dtoRandevu);
