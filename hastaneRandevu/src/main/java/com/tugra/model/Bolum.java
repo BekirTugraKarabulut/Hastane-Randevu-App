@@ -33,4 +33,7 @@ public class Bolum {
     @OneToMany(mappedBy = "bolum" , cascade = CascadeType.ALL)
     private List<Calisanlar> calisanlar;
 
+    @OneToMany(mappedBy = "bolum" , cascade = CascadeType.ALL)
+    private List<Randevu> randevus;
+
 }

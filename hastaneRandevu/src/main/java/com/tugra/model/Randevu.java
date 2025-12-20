@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "randevu",
@@ -41,5 +42,9 @@ public class Randevu {
     @ManyToOne
     @JoinColumn(name = "calisan_id" , referencedColumnName = "calisan_id")
     private Calisanlar calisanlar;
+
+    @ManyToOne
+    @JoinColumn(name = "bolum_id", referencedColumnName = "bolum_id")
+    private Bolum bolum;
 
 }

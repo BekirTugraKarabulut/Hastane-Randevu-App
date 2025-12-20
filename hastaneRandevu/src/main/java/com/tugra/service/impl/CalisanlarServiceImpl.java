@@ -10,6 +10,7 @@ import com.tugra.jwt.AuthResponse;
 import com.tugra.jwt.CalisanRequest;
 import com.tugra.jwt.JwtService;
 import com.tugra.model.*;
+import com.tugra.repository.BolumRepository;
 import com.tugra.repository.CalisanRefreshTokenRepository;
 import com.tugra.repository.CalisanlarRepository;
 import com.tugra.service.CalisanlarService;
@@ -30,6 +31,9 @@ public class CalisanlarServiceImpl implements CalisanlarService {
 
     @Autowired
     private CalisanlarRepository calisanlarRepository;
+
+    @Autowired
+    private BolumRepository bolumRepository;
 
     @Autowired
     private BolumServiceImpl bolumServiceImpl;
@@ -125,15 +129,17 @@ public class CalisanlarServiceImpl implements CalisanlarService {
 
     public Calisanlar calisanGetir(Long calisanId){
 
-        Optional<Calisanlar> calisanlar = calisanlarRepository.findByCalisanId(calisanId);
+        Optional<Calisanlar> calisanlarOpt = calisanlarRepository.findByCalisanId(calisanId);
 
-        if(calisanlar.isEmpty()){
+        if(calisanlarOpt.isEmpty()){
             throw new BaseException(new ErrorMessage(MessageType.CALISAN_BULUNAMADI , calisanId.toString()));
         }
 
-        return calisanlar.get();
+        Optional<Bolum> bolumOptional = bolumRepository.findByBolumId(calisanlarOpt.get().getBolum().getBolumId());
+
+        calisanlarOpt.get().setBolum(bolumOptional.get());
+
+        return calisanlarOpt.get();
     }
-
-
 
 }

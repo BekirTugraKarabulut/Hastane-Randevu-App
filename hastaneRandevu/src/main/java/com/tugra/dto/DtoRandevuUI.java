@@ -21,4 +21,5 @@ public class DtoRandevuUI {
 
     private DtoCalisanlar calisanlar;
 
+    private DtoBolum bolum;
 }

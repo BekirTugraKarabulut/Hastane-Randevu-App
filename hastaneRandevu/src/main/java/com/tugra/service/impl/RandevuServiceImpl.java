@@ -1,9 +1,7 @@
 package com.tugra.service.impl;
 
-import com.tugra.dto.DtoCalisanlar;
-import com.tugra.dto.DtoKullanici;
-import com.tugra.dto.DtoRandevu;
-import com.tugra.dto.DtoRandevuUI;
+import com.tugra.dto.*;
+import com.tugra.model.Bolum;
 import com.tugra.model.Calisanlar;
 import com.tugra.model.Kullanici;
 import com.tugra.model.Randevu;
@@ -43,6 +41,10 @@ public class RandevuServiceImpl implements RandevuService {
         Calisanlar calisanlar = new Calisanlar();
         calisanlar.setCalisanId(dtoRandevuUI.getCalisanlar().getCalisanId());
         Calisanlar calisanBilgileri = calisanlarServiceImpl.calisanGetir(calisanlar.getCalisanId());
+
+        Bolum bolum = calisanBilgileri.getBolum();
+        randevu.setBolum(bolum);
+
         randevu.setCalisanlar(calisanBilgileri);
 
         Randevu dbRandevu = randevuRepository.save(randevu);
@@ -56,6 +58,10 @@ public class RandevuServiceImpl implements RandevuService {
         DtoCalisanlar dtoCalisanlar = new DtoCalisanlar();
         BeanUtils.copyProperties(dbRandevu.getCalisanlar(), dtoCalisanlar);
         dtoRandevu.setCalisanlar(dtoCalisanlar);
+
+        DtoBolum dtoBolum = new DtoBolum();
+        BeanUtils.copyProperties(dbRandevu.getBolum(), dtoBolum);
+        dtoCalisanlar.setBolum(dtoBolum);
 
         return dtoRandevu;
     }

@@ -21,4 +21,6 @@ public class DtoRandevu {
 
     private DtoCalisanlar calisanlar;
 
+    private DtoBolum bolum;
+
 }
