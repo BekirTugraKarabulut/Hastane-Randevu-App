@@ -8,10 +8,9 @@ import com.tugra.jwt.CalisanRequest;
 import com.tugra.service.CalisanlarService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/calisanlar")
@@ -32,6 +31,12 @@ public class CalisanlarControllerImpl implements CalisanlarController {
     @PostMapping(path = "/girisYap")
     public AuthResponse girisYap(@RequestBody CalisanRequest calisanRequest) {
         return calisanlarService.girisYap(calisanRequest);
+    }
+
+    @Override
+    @GetMapping(path = "/allCalisanlar")
+    public List<DtoCalisanlar> allCalisanlar() {
+        return calisanlarService.allCalisanlar();
     }
 
 }

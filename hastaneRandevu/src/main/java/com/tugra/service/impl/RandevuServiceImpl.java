@@ -13,6 +13,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class RandevuServiceImpl implements RandevuService {
 
@@ -56,5 +59,34 @@ public class RandevuServiceImpl implements RandevuService {
 
         return dtoRandevu;
     }
+
+    @Override
+    public List<DtoRandevu> getRandevuByUsernmame(String username) {
+
+        Kullanici kullanici = new Kullanici();
+        kullanici.setUsername(username);
+        Kullanici kullaniciBilgileri = kullaniciServiceImpl.getKullanici(kullanici.getUsername());
+
+        List<Randevu> randevuList = randevuRepository.findByKullanici_Username(kullaniciBilgileri.getUsername());
+        List<DtoRandevu> dtoRandevuList = new ArrayList<>();
+
+        for(Randevu randevu : randevuList) {
+            DtoRandevu dtoRandevu = new DtoRandevu();
+            BeanUtils.copyProperties(randevu, dtoRandevu);
+
+            DtoKullanici dtoKullanici = new DtoKullanici();
+            BeanUtils.copyProperties(randevu.getKullanici(), dtoKullanici);
+            dtoRandevu.setKullanici(dtoKullanici);
+
+            DtoCalisanlar dtoCalisanlar = new DtoCalisanlar();
+            BeanUtils.copyProperties(randevu.getCalisanlar(), dtoCalisanlar);
+            dtoRandevu.setCalisanlar(dtoCalisanlar);
+
+            dtoRandevuList.add(dtoRandevu);
+        }
+
+        return dtoRandevuList;
+    }
+
 
 }

@@ -6,10 +6,9 @@ import com.tugra.dto.DtoRandevuUI;
 import com.tugra.service.RandevuService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/randevu")
@@ -23,6 +22,12 @@ public class RandevuControllerImpl implements RandevuController {
     @PostMapping(path = "/randevuAl")
     public DtoRandevu randevuAl(@RequestBody DtoRandevuUI dtoRandevuUI) {
         return randevuService.randevuAl(dtoRandevuUI);
+    }
+
+    @Override
+    @GetMapping(path = "/getRandevuByUsername/{username}")
+    public List<DtoRandevu> getRandevuByUsernmame(@PathVariable(name = "username" , required = true) String username) {
+        return randevuService.getRandevuByUsernmame(username);
     }
 
 }

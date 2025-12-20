@@ -20,9 +20,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.logging.Logger;
 
 @Service
@@ -105,6 +103,26 @@ public class CalisanlarServiceImpl implements CalisanlarService {
         return new AuthResponse(accessToken , dbRefreshTokenCalisanlar.getToken());
     }
 
+    @Override
+    public List<DtoCalisanlar> allCalisanlar() {
+
+        List<Calisanlar> calisanlarList = calisanlarRepository.findAll();
+        List<DtoCalisanlar> dtoCalisanlarList = new ArrayList<>();
+
+        for (Calisanlar calisanlar : calisanlarList){
+            DtoCalisanlar dtoCalisanlar = new DtoCalisanlar();
+            BeanUtils.copyProperties(calisanlar, dtoCalisanlar);
+
+            DtoBolum dtoBolum = new DtoBolum();
+            BeanUtils.copyProperties(calisanlar.getBolum(), dtoBolum);
+            dtoCalisanlar.setBolum(dtoBolum);
+
+            dtoCalisanlarList.add(dtoCalisanlar);
+        }
+
+        return dtoCalisanlarList;
+    }
+
     public Calisanlar calisanGetir(Long calisanId){
 
         Optional<Calisanlar> calisanlar = calisanlarRepository.findByCalisanId(calisanId);
@@ -115,5 +133,7 @@ public class CalisanlarServiceImpl implements CalisanlarService {
 
         return calisanlar.get();
     }
+
+
 
 }
