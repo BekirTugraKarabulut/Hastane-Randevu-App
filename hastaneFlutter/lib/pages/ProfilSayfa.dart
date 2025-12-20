@@ -18,11 +18,12 @@ class _ProfilsayfaState extends State<Profilsayfa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           children: [
               Padding(
-                padding: const EdgeInsets.only(top: 25 , right: 10),
+                padding: const EdgeInsets.only(top: 15 , right: 10),
                 child: Container(
                   height: 15,
                   child: Row(mainAxisAlignment: MainAxisAlignment.end,

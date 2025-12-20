@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hastane_flutter/pages/CalisanlarSayfasi.dart';
 import 'package:hastane_flutter/pages/HastaneAdresSayfasi.dart';
 import 'package:hastane_flutter/pages/ProfilSayfa.dart';
 import 'package:hastane_flutter/pages/RandevuAlSayfasi.dart';
@@ -163,7 +164,9 @@ class _AnasayfaState extends State<Anasayfa> {
                                   ),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => Calisanlarsayfasi()));
+                              },
                               child: const Text(
                                 "Doktor Kadrosu",
                                 style: TextStyle(color: Colors.white),
